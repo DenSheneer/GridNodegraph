@@ -8,12 +8,15 @@ public class NodeGraphGenerator : MonoBehaviour
     public Vector2 topRight = new Vector2(5,5);
     public float gridSize = 1;
 
-    public LayerMask layerMask;
+    [SerializeField]
+    private LayerMask layerMask;
 
     private Vector2?[,] nodes;
 
     void Start()
     {
+        GameObject floor = GameObject.Find("floor");
+        floor.layer = LayerMask.NameToLayer("Ignore Raycast");
 
         int nodeColumns = (int)(Mathf.Floor((topRight.x - leftBottom.x) / gridSize));
         int nodeRows = (int)(Mathf.Floor((topRight.y - leftBottom.y) / gridSize));
@@ -29,12 +32,12 @@ public class NodeGraphGenerator : MonoBehaviour
 
                 Ray ray = new Ray(worldSpace, Vector3.down);
                 //if we hit something, there is something in the way
-                if (!Physics.Raycast(ray, 1000, layerMask))
+                if (!Physics.Raycast(ray, Mathf.Infinity, layerMask))
                 {
                     nodes[x, y] = node;
                 }else
                 {
-                    nodes[x, y] = null;
+                    nodes[x, y] = new Vector2(-1,-1);
                 }
             }
         }

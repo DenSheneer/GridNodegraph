@@ -1,7 +1,0 @@
-<root>
-  <GameObject name="model" position="(-6.0, 0.0, 6.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="model.obj" />
-  <GameObject name="model" position="(6.0, 0.0, -6.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="model.obj" />
-  <GameObject name="Cube" position="(6.0, 0.0, 6.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="Cube.obj" />
-  <GameObject name="Sphere" position="(-6.0, 0.0, -6.0)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="Sphere.obj" />
-  <GameObject name="Cube" position="(8.1, 0.0, -8.7)" rotation="(0.0, 0.0, 0.0, 1.0)" scale="(1.0, 1.0, 1.0)" mesh="Cube.obj" />
-</root>

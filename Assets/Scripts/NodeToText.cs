@@ -10,12 +10,12 @@ public class NodeToText
 
     public static void NodeToTextFile(Vector2 node)
     {
-        System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
-        customCulture.NumberFormat.NumberDecimalSeparator = ".";
-        System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
-
-        if (node != null)
+        if (node.x >= 0 && node.y >= 0)
         {
+            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+
             StreamWriter writer = new StreamWriter(path, true);
 
             writer.WriteLine("Node [");
@@ -27,8 +27,8 @@ public class NodeToText
 
             AssetDatabase.ImportAsset(path);
             TextAsset asset = (TextAsset)Resources.Load("nodes");
-            Debug.Log(asset.text);
         }
+        else
+            return;
     }
-
 }

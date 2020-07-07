@@ -9,7 +9,10 @@ public class TileIndicator : MonoBehaviour
     Vector3Int oldPosition = new Vector3Int();
     Vector3Int position;
 
-    [SerializeField] GameObject[] indicators = new GameObject[4];
+    public void Start()
+    {
+        gameObject.SetActive(!Application.isPlaying);
+    }
 
     public void UpdatePosition(Vector3 raycastPoint)
     {
@@ -19,7 +22,7 @@ public class TileIndicator : MonoBehaviour
         {
             oldPosition = position;
             transform.position = position + NodeGraph.Offset;
-            Debug.Log("X: " + position.x + " Y: " + position.z);
+            //Debug.Log("X: " + position.x + " Y: " + position.z);
         }
     }
 
@@ -31,19 +34,5 @@ public class TileIndicator : MonoBehaviour
     public Vector3Int GetSelectedTile()
     {
         return new Vector3Int(position.x, 0, position.z);
-    }
-
-    public void UpdateConnectionIndicator(int editmodeNr)
-    {
-        foreach (GameObject go in indicators)
-        {
-            go.SetActive(false);
-        }
-
-        if (editmodeNr > 0 && editmodeNr < 5)
-        {
-            editmodeNr = editmodeNr - 1;
-            indicators[editmodeNr].SetActive(true);
-        }
     }
 }
