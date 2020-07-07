@@ -15,3 +15,4 @@ When done painting/placing obstacles, enter playmode.
 Click the "export" button to create a JSON file in the resource folder.
 
 This file contains the nodes that are covered by obstacles.
+You can use this file in any way you want. For example in a C++ project.
